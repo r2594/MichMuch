@@ -1,16 +1,13 @@
 import React from 'react';
 import './films.css';
-import Header from './Components/Header';
-import Footer from  './Components/Footer';
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 function Films() {
   return (
     <div className="App">
       <header className="App-header">
-        <Header/>
-        <h1>OKAAUY</h1>
-        <Footer/>
+        <h1>TOUS LES FILMS</h1>
       </header>
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import './footer.css';
 
 
-function App() {
+function Footer() {
   return (
     <div className="App">
       <header className="App-header">
@@ -12,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+export default Footer;

@@ -10,7 +10,7 @@ function Contact() {
     <div className="App">
       <header className="App-header">
         <Header/>
-        <h1>OKAAUY</h1>
+        <h1>Contact</h1>
         <Footer/>
       </header>
     </div>
