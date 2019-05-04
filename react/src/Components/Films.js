@@ -15,7 +15,7 @@ function Films() {
             <span id="movie-rate">Rate</span>
             <span>
               03H20<small>min</small>
-            
+            <h2>All righhhht</h2>
             </span>
 
           </div>
