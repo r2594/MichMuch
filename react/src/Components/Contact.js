@@ -8,11 +8,9 @@ import Footer from  './Components/Footer';
 function Contact() {
   return (
     <div className="App">
-      <header className="App-header">
         <Header/>
         <h1>Contact</h1>
         <Footer/>
-      </header>
     </div>
   );
 }

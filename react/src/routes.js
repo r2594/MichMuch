@@ -1,18 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import App from './App'
-import {
-    Films,
-    Contact
-} from './Components/Films'
-
+import Films from './Components/Films'
+import Contact from './Components/Contact'
 
 const routing = (
   <Router>
     <div>
-      <Route path="/" component={App} />
+      <Route exact path="/" component={App} />
       <Route path="/all-films" component={Films} />
       <Route path="/contact" component={Contact} />
     </div>
