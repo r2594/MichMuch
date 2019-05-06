@@ -1,0 +1,39 @@
+.small-description li{
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    padding: 4px;
+    font-size: 1.5em;
+    color: rgba(34, 23, 23, 0.863);
+}
+
+#movie-name > #movie-rate{
+    float: right;
+}
+
+#movie-name, .title-page{
+    font-size: 2rem;
+    margin: 19px 0;
+    font-style: italic;
+
+}
+/* .movie-description{
+    margin: 26px 100px;
+} */
+
+#movie-rate{
+    display: inline-block;
+    float: right;
+}
+
+.movie-description #place-restants {
+    margin: 40px 0;
+    width: 100%;
+    padding: 4rem;
+    font-size: 2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: bisque;
+    color: #ffff;
+    display: center;
+}

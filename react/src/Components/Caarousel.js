@@ -1,17 +1,17 @@
 import React from 'react';
 import './films.css';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import {Carousel, Item, Caption } from 'react-bootstrap';
-import image1 from './Images/image1.jpg';
+import {Carousel} from 'react-bootstrap';
+// import image1 from '../Images/image1.jpg';
 
 function Caarousel() {
   return (
-    <div>
+    <div className="container-fluid">
       <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={image1}
+            src="./Images/image1.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -22,7 +22,7 @@ function Caarousel() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={image1}
+            src="./Images/image1.jpg"
             alt="Third slide"
           />
 
@@ -34,7 +34,7 @@ function Caarousel() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={image1}            
+            src="./Images/image1.jpg"            
             alt="Third slide"
           />
 
