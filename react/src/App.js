@@ -1,26 +1,14 @@
 import React from 'react';
 import Accueil from './Components/Accueil';
-import Films from './Components/Films';
-import Contact from './Components/Contact';
-import Admin from './Components/Admin';
-import { BrowserRouter, Router, Route, Link} from 'react-router-dom'
+
 
 function App() {
   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <Header/>
-    //     <Accueil/>
-    //     <Footer/>
-    //   </header>
-    // </div>
-    <BrowserRouter>
-      <Route exact path="/" component={Accueil} />
-      <Route path="/all-films" component={Films} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/admin" component={Admin} />
-
-    </BrowserRouter>
+    <div className="App">
+      <header className="App-header">
+        <Accueil></Accueil>
+      </header>
+    </div>
   );
 }
 
