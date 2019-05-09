@@ -5,6 +5,8 @@ import './films.css';
 import {Carousel, Item, Caption, Dropdown, Divider } from 'react-bootstrap';
 import Caarousel from './Caarousel';
 import Seances from './Seances';
+import Footer from './Footer';
+import Header from './Header';
 
 
 
@@ -29,7 +31,8 @@ function Films() {
 
 
   return (
-    <div className="film-wrapper row">
+    <div className="film-wrapper">
+      <Header/>
       <Caarousel/>
       <div className="main container">
         <div className="movie-description col-lg-12 col-md-8">
@@ -66,6 +69,7 @@ function Films() {
         </div>
       </div>
       <Seances/>
+      <Footer/>
     </div>
   );
 }

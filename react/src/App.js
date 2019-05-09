@@ -1,36 +1,24 @@
-import React from 'react';
+import React from 'react'
 import Accueil from './Components/Accueil';
+import './index.css'
+import Films from './Components/Films';
+import Contact from './Components/Contact';
+import Admin from './Components/Admin';
+import AllFilms from './Components/AllFilms';
 
+import { BrowserRouter, Router, Route, Link} from 'react-router-dom';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Accueil></Accueil>
-      </header>
-    </div>
-  );
-}
+  return  (
+    <BrowserRouter>
+      <Route exact path="/" component={Accueil} />
+      <Route path="/film" component={Films} />
+      <Route path="/contact" component={Contact} />
+      <Route path="/all-films" component={AllFilms} />
+      <Route path="/admin" component={Admin} />
+
+    </BrowserRouter>
+    )
+  };
 
 export default App;
-
-
-// import React from 'react'
-// import ReactDOM from 'react-dom'
-// import './index.css'
-// import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-// import App from './App'
-
-// import Contact from './Components/Contact'
-
-// const routing = (
-//   <Router>
-//     <div>
-//       <Route path="/" component={App} />
-//       <Route path="/all-films" component={Films} />
-//       <Route path="/contact" component={Contact} />
-//     </div>
-//   </Router>
-// )
-
-// ReactDOM.render(routing, document.getElementById('root'))

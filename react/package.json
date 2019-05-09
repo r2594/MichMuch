@@ -17,7 +17,11 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "env": {
+      "browser": true,
+      "node": true
+    }
   },
   "browserslist": {
     "production": [
@@ -33,7 +37,14 @@
   },
   "description": "cinema website",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "eslint": "^5.16.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-react": "^7.13.0",
+    "json-loader": "^0.5.7"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joellemaximin/MichMuch.git%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B.git"

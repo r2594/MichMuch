@@ -6,7 +6,10 @@
     font-size: 1.5em;
     color: rgba(34, 23, 23, 0.863);
 }
-
+span{
+    color: #fff;
+}
+  
 #movie-name > #movie-rate{
     float: right;
 }
@@ -36,4 +39,10 @@
     background-color: bisque;
     color: #ffff;
     display: center;
+}
+
+
+
+.card{
+    background-color: #000!important;
 }
