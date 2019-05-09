@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div className="App">
         <div className="footer container">
-          <div className="row">
+          <div className="row justify-content-center">
             <div className="col-lg-4 col-sm-6">
               <p className="pfooter1"><span><b>tel :</b></span> 01.33.78.12.26</p>
             </div>

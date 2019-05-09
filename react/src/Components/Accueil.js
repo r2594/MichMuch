@@ -2,17 +2,13 @@ import React from 'react';
 import './accueil.css';
 import Header from './Header';
 import Footer from  './Footer';
-import Carousel from 'react-bootstrap/Carousel'
+import Carousel from 'react-bootstrap/Carousel';
+import Acform from './Acform';
 
 function Accueil() {
   return (
     <div className="App">
         <Header></Header>
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-6 acform"></div>
-          </div>
-        </div>
         <Carousel>
           <Carousel.Item>
             <img
@@ -62,6 +58,7 @@ function Accueil() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+        <Acform></Acform>
         <h1>Solansh wasn't here this time !</h1>
         <Footer></Footer>
     </div>
