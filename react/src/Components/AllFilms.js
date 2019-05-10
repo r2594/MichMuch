@@ -47,11 +47,11 @@ class AllFilms extends Component {
             <div className={''}>{this.state.data.map((x, i) =>
                  <div key={i}>
                   
-                   <img src="{'x.Image'}" alt=""/>
+                   <img src={'x.Image'} alt=""/>
                    
             
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Img variant="top" src={x.Image} />
               <Card.Body>
                 <Card.Title> {x.title}</Card.Title>
                 <Card.Text>{x.Description}
