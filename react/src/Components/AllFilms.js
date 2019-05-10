@@ -14,6 +14,7 @@ class AllFilms extends Component {
 
     this.state = {
       data: [],
+      datacome: [],
       error: null,
     };
   }
@@ -21,6 +22,7 @@ class AllFilms extends Component {
 
   componentDidMount(){
     this.fetchData();
+    this.fetchDataCome();
   }
 
   fetchData(){
@@ -30,6 +32,18 @@ class AllFilms extends Component {
       console.log(findresponse)
       this.setState({
         data:findresponse
+      })
+    })
+    .catch(error => console.log('erreurs me voilàà', error))
+  }
+
+  fetchDataCome(){
+    fetch('./Data/MoviesComing.json')
+    .then((response) => response.json())
+    .then((results)=>{
+      console.log(results)
+      this.setState({
+        datacome:results
       })
     })
     .catch(error => console.log('erreurs me voilàà', error))
@@ -54,23 +68,33 @@ class AllFilms extends Component {
               <Card.Img variant="top" src={x.Image} />
               <Card.Body>
                 <Card.Title> {x.title}</Card.Title>
-                <Card.Text>{x.Description}
-                  
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Card.Text>{x.Description}</Card.Text>
               </Card.Body>
             </Card>
-                 
-            </div>
-                 )}
-              
+              </div>
+            )}
+        
             </div>
 
               
 
-            <h4>Films à ne pas raté: NEXT WEEK</h4>
+            <h4>Films à ne pas rater: NEXT WEEK</h4>
+            
+            <div className={''}>{this.state.datacome.map((x, i) =>
+              <div key={i}>                
+            
+                <Card style={{ width: '18rem' }}>
+                  <Card.Img variant="top" src={x.Image} />
+                  <Card.Body>
+                    <Card.Title>{x.title}</Card.Title>
+                    <Button >Go somewhere</Button>
+                  </Card.Body>
+                </Card>
+              </div>
+            )}
+            </div>
+         
           </div>
-          
           <Footer/>
         </div>
       );
