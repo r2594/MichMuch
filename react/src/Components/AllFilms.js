@@ -59,19 +59,21 @@ class AllFilms extends Component {
           <div className="container">
             <h4>Cette semaine</h4>
             <div className={''}>{this.state.data.map((x, i) =>
-              <div key={i}>                
-            
-                <Card style={{ width: '18rem' }}>
-                  <Card.Img variant="top" src={x.Image} />
-                  <Card.Body>
-                    <Card.Title>{x.title}</Card.Title>
-                    <Button variant="primary">Go somewhere</Button>
-                  </Card.Body>
-                </Card>
+                 <div key={i}>
                   
+                   <img src={'x.Image'} alt=""/>
+                   
+            
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={x.Image} />
+              <Card.Body>
+                <Card.Title> {x.title}</Card.Title>
+                <Card.Text>{x.Description}</Card.Text>
+              </Card.Body>
+            </Card>
               </div>
             )}
-              
+        
             </div>
 
               
