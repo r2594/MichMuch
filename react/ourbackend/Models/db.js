@@ -1,14 +1,20 @@
+//Set up default database connection
+const mysql = require('mysql');
 
 const connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: 'admin',
+	password: '1234',
 	database: 'cinema'
 });
 
-connection.connect(err => {
+exports.connect = connection.connect(function(err){
 	if(err){
-		return err;
+		console.log('error' + err.stack);
+		return;
 	}
+
+	console.log('connextion as id' + connection.threadId);
 });
 
+module.exports = connection;
