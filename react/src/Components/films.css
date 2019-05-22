@@ -9,7 +9,15 @@
 span{
     color: #fff;
 }
-  
+
+.movie-description {
+    margin-top: 15rem;
+}
+ 
+#time, #version-movie, #type-movie, .small-description{
+    color: #fff;
+}
+
 #movie-name > #movie-rate{
     float: right;
 }
