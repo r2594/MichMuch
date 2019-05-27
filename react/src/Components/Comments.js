@@ -12,13 +12,7 @@ class Comments extends Component {
       super(props);
   
       this.state = {
-        list: [
-          { id: '1', age: 42 },
-          { id: '2', age: 33 },
-          { id: '3', age: 68 },
-        ],
-        yourComment: 'How was the movie',
-        comment: []
+        comments: []
       };
     }
 
@@ -27,11 +21,11 @@ class Comments extends Component {
     }
 
     fetchComment(){
-      fetch('./Data/Commentaires.json')
+      fetch('/comments')
       .then((response) => response.json())
-      .then((results) => {
+      .then((allcomments) => {
         this.setState({
-          comment: results
+          comments: allcomments
         })
 
       })
@@ -39,23 +33,23 @@ class Comments extends Component {
     }
 
 
-    onCreateComm = id =>{
+    // onCreateComm = id =>{
 
-    }
+    // }
 
-    onEdit = id =>{
+    // onEdit = id =>{
 
-    }
+    // }
 
-    onRemoveItem = id => {
-        this.setState(state => {
-            const list = state.list.filter(item => item.id !== id);
+    // onRemoveItem = id => {
+    //     this.setState(state => {
+    //         const list = state.list.filter(item => item.id !== id);
 
-            return {
-            list,
-            };
-        });
-    };
+    //         return {
+    //         list,
+    //         };
+    //     });
+    // };
 
   render() {
     return (
@@ -64,41 +58,24 @@ class Comments extends Component {
             <button>
               Ajouter votre avis
             </button>
-            <div id="list-comments">{this.state.comment.map((x, i) =>
-                <div id="comment" key={i}>
-                  <Row> 
-                    <Col xs={6} md={4}>
-                      <Image className="profile" src="./Images/flou.jpg" roundedCircle />
-                    </Col>
-                  </Row>
-                  <div className="okay">
-                    
-                    <h3 id="name">{x.Surname}</h3> <span id="time">{x.time}</span>
-                    <p id="body-comment">{x.bodycomment}</p>
-                    <div className="blockButton">
-                      <button id="edit" type="button">Editer</button>
-                      <button id="delete" type="button">Supprimer</button>
-                    </div>
+            <div id="list-comments">{this.state.comments.map((comment, i) =>
+              <div id="comment" key={i}>
+                <Row> 
+                  <Col xs={6} md={4}>
+                    <Image className="profile" src="./Images/flou.jpg" roundedCircle />
+                  </Col>
+                </Row>
+                <div className="okay">
+                  
+                  <h3 id="name">{comment.customer_name}</h3> <span id="time"></span>
+                  <p id="body-comment">{comment.movie_comment_description}</p>
+                  <div className="blockButton">
+                    <button id="edit" type="button">Editer</button>
+                    <button id="delete" type="button">Supprimer</button>
                   </div>
                 </div>
-                )}
-                <div>
-                {this.state.list.map(item => (
-                <div key={item.id}>
-                    The person is {item.age} years old.
-                    <input
-                      type="text"
-                      onc
-                    />
-                    <button
-                    type="button"
-                    onClick={() => this.onRemoveItem(item.id)}
-                    >
-                    Remove
-                    </button>
-                </div>
-                ))}
               </div>
+              )};
             </div>
         </div>
       );

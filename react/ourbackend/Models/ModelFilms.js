@@ -14,5 +14,14 @@ Films.getAllfilms = function(result){
 	});
 };
 
+
+Films.getOneFilm = function(result){
+
+	sql.query('SELECT * from movies WHERE movie_name IN("Avengers", "Captain Marvel", "Glass", "Toy Story", "John Wick", "Stars Wars", "Le Roi Lion") ', function(err,res, fields){
+		if(err) throw err;
+		result(null, res);
+	});
+};
+
 //export object to controller
 module.exports = Films;

@@ -18,64 +18,63 @@ class Films extends Component {
     super(props);
 
     this.state = {
-      data: [],
-      datacome: []
+      films: []
     };
   }
 
   
   componentDidMount(){
     this.fetchData();
-    this.fetchDataCome();
+    //this.fetchDataCome();
   }
 
   fetchData(){
-    fetch('./Data/Movies.json')
-    .then((response) => response.json())
-    .then((findresponse)=>{
-      this.setState({
-        data:findresponse
-      })
-    })
-    .catch(error => console.log('erreurs me voilàà', error))
+    fetch('/films')
+      .then(res => res.json())
+      .then(allfilms =>
+       this.setState({films: allfilms })
+      );
+    //.catch(error => console.log('erreurs me voilàà', error))
   }
 
-  fetchDataCome(){
-    fetch('./Data/MoviesComing.json')
-    .then((response) => response.json())
-    .then((results)=>{
-      console.log(results)
-      this.setState({
-        datacome:results
-      })
-    })
-    .catch(error => console.log('erreurs me voilàà', error))
-  }
+  // fetchDataCome(){
+  //   fetch('./Data/MoviesComing.json')
+  //   .then((response) => response.json())
+  //   .then((results)=>{
+  //     console.log(results)
+  //     this.setState({
+  //       datacome:results
+  //     })
+  //   })
+  //   .catch(error => console.log('erreurs me voilàà', error))
+  // }
 
 
   render(){
+    console.log(this.state.film)
+
     return (
       <div className="film-wrapper">
         <Header/>
         <Caarousel/>
           <div className="main container" className={''}>
             <div className="movie-description col-lg-12 col-md-8">
-            {this.state.data.map((x, i)=>
+            {this.state.films.map((film, i)=>
 
               <div key={i}>
 
-                <h3 id="movie-name">{x.title}</h3>
-                <span id="movie-rate">{x.rate}</span>
+                <h3 id="movie-name">{film.movie_name}</h3>
+                <span id="movie-rate">{film.movie_rating}</span>
                 <span>
                   <ul className="small-description">
                     <li id="time">
-                      {x.Hours}<small>min</small>
+                      {film.Hours}<small>min</small>
                     </li>
                     <li id="version-movie">
-                      <p>{x.version}</p>
+                      <p>{film.version}</p>
                     </li>
                     <li id="type-movie">
-                      <p>{x.Version}</p>
+                      <p>{film.Version}</p>
                     </li>
                   </ul>
                 </span>
@@ -83,7 +82,7 @@ class Films extends Component {
                 <Dropdown.Divider />
 
                 <div className="big-description">
-                  <p id="descrip-movie">{x.Description}
+                  <p id="descrip-movie">
                   </p>
                 </div>
               </div>

@@ -9,8 +9,24 @@ exports.displayallfilms = function(req, res){
         } else {
             res.json(data)
         }
-    })
-}
+    });
+
+};
+
+
+exports.displayonefilm = function(req, res){
+
+    Films.getOneFilm(function(err, data){
+        if (err){
+            res.send(err);
+        } else {
+            res.json(data)
+        }
+    });
+
+};
+
+
 // module.exports = {
 //     createUser: async (req, res) => {
 //         //create user

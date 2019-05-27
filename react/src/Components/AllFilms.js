@@ -12,54 +12,53 @@ import  { History } from 'react-router-dom';
 class AllFilms extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      data: [],
+      films: [],
       datacome: [],
       error: null,
     };
     this.handleClick = this.handleClick.bind(this)
+    //this.fetchData = this.fetchData.bind(this)
   }
 
 
   componentDidMount(){
     this.fetchData();
-    this.fetchDataCome();
+    //this.fetchDataCome();
   }
 
   fetchData(){
-    fetch('./Data/Movies.json')
-    .then((response) => response.json())
-    .then((findresponse)=>{
-      console.log(findresponse)
-      this.setState({
-        data:findresponse
-      })
-    })
-    .catch(error => console.log('erreurs me voilàà', error))
+    let that = this;
+    fetch('/films')
+      .then(res => res.json())
+      .then(films =>
+       that.setState({films: films})
+      );
+    //.catch(error => console.log('erreurs me voilàà', error))
   }
 
-  fetchDataCome(){
-    fetch('./Data/MoviesComing.json')
-    .then((response) => response.json())
-    .then((results)=>{
-      console.log(results)
-      this.setState({
-        datacome:results
-      })
-    })
-    .catch(error => console.log('erreurs me voilàà', error))
-  }
+  // fetchDataCome(){
+  //   fetch('./Data/MoviesComing.json')
+  //   .then((response) => response.json())
+  //   .then((results)=>{
+  //     console.log(results)
+  //     this.setState({
+  //       datacome:results
+  //     })
+  //   })
+  //   .catch(error => console.log('erreurs me voilàà', error))
+  // }
 
   handleClick(e){
     e.preventDefault()
-    this.props.history.push('/films');
+    this.props.history.push('/movies');
   }
 
 
 
 
   render(){
+    console.log(this.state.films)
     // const {isLoading, Films} = this.state;
     // const {isLoading, contacts} = this.state;
     return (
@@ -67,13 +66,13 @@ class AllFilms extends Component {
           <Header/>
           <div className="container">
             <h4>Cette semaine</h4>
-            <div className={''}>{this.state.data.map((x, i) =>
+            <div className={''}>{this.state.films.map((film, i) =>
               <div key={i}>
               <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={x.Image} />
+                <Card.Img variant="top" src={film.Image} />
                 <Card.Body>
-                  <Card.Title> {x.title}</Card.Title>
-                  <Card.Text>{x.Description}</Card.Text>
+                  <Card.Title> {film.movie_name}</Card.Title>
+                  <Card.Text>{film.movie_synopsis}</Card.Text>
                   <Button onClick={this.handleClick}>Aller</Button>
                 </Card.Body>
               </Card>
