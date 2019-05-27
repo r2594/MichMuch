@@ -6,13 +6,6 @@
     font-size: 1.5em;
     color: rgba(34, 23, 23, 0.863);
 }
-/* span{
-    color: #fff;
-<<<<<<< HEAD
-} */
-  
-=======
-}
 
 .movie-description {
     margin-top: 15rem;
@@ -22,7 +15,6 @@
     color: #fff;
 }
 
->>>>>>> 972d9fe95bd4e1d6aa56262919cc31366df40aaf
 #movie-name > #movie-rate{
     float: right;
 }
@@ -33,14 +25,6 @@
     font-style: italic;
 
 }
-/* .movie-description{
-    margin: 26px 100px;
-} */
-
-/* #movie-rate{
-    display: inline-block;
-    float: right;
-} */
 
 .movie-description #place-restants {
     margin: 40px 0;

@@ -22,7 +22,7 @@ class Acform extends Component {
   }
 
   fetchData(){
-    fetch('./Data/Movies.json')
+    fetch('/films')
     .then((response) => response.json())
     .then((findresponse)=>{
       console.log(findresponse)
@@ -43,11 +43,11 @@ class Acform extends Component {
     // let regex = new RegExp('/[A-Za-z]{1,}/');
     document.getElementById('divfilm').innerHTML = "";
     this.state.data.forEach(element => {
-      console.log(element);
+      console.log(element.movie_name);
       
-      if(element.title == this.state.search){
+      if(element.movie_name == this.state.search){
         document.getElementById("divfilm").insertAdjacentHTML
-        ('afterbegin', '<div class="row acdivfilm clearfix"><div class="col-4"><img src="'+element.Image+'"/></div><div class="col-8 title-form"><h3>'+element.title+'</h3><p>'+element.Description+'</p><p>'+element.Hours+'</p></div></div>');}
+        ('afterbegin', '<div class="row acdivfilm clearfix"><div class="col-4"><img src="'+element.movie_image+'"/></div><div class="col-8 title-form"><h3>'+element.movie_name+'</h3><p>'+element.movie_synopsis+'</p><p>'+element.movie_hours+'</p></div></div>');}
     });
   }
 
