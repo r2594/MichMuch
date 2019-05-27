@@ -8,8 +8,21 @@
 }
 /* span{
     color: #fff;
+<<<<<<< HEAD
 } */
   
+=======
+}
+
+.movie-description {
+    margin-top: 15rem;
+}
+ 
+#time, #version-movie, #type-movie, .small-description{
+    color: #fff;
+}
+
+>>>>>>> 972d9fe95bd4e1d6aa56262919cc31366df40aaf
 #movie-name > #movie-rate{
     float: right;
 }

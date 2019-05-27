@@ -1,0 +1,13 @@
+.profile{
+    width: 50%;
+    border-radius: 20%;
+}
+
+#name, #time{
+    display: inline-flex;
+    padding-left: 14px;
+}
+.profile> .okay{
+    display: flex;
+    position: absolute;
+}
