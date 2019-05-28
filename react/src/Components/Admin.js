@@ -1,11 +1,13 @@
 import React from 'react';
 import './admin.css';
+import Nav from 'react-bootstrap/Nav'
+
 
 function Admin() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Admin</h1>
+        <Nav.Link to="/Adminfilms">Films</Nav.Link>
       </header>
     </div>
   );
