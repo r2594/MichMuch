@@ -26,21 +26,17 @@ exports.displayonefilm = function(req, res){
 
 };
 
+exports.deleteonefilm = function(req, res){
 
-// module.exports = {
-//     createUser: async (req, res) => {
-//         //create user
-//         var query = "INSERT INTO users (" +
-//             "email, password ) " +
-//             "VALUES (?, ?)";
+    console.log('lol');
 
-//         var data = [req.body.email, req.body.password]
-//         try{
-//             var user = connection.query(query, data);
-//         } catch (err) {
-//             console.error("Error occurred : ", err.message);
-//             response.createResponse(res,500,err.message,{},{});
-//         }
-//         response.createResponse(res, 200, messages.USER_CREATED_SUCCESS, {}, {});
-//     },
-// };
+    var movie_delete = new Films(req.body);
+
+    Films.deletefilm(movie_delete, function(err, data){
+        if (err){
+            res.send(err);
+        } else {
+            res.json(data);
+        }
+    });
+}

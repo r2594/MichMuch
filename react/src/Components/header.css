@@ -47,24 +47,25 @@
     margin-right: 35%;
 }
 
-.navbar-light .navbar-nav .nav-link.active {
+a.active {
     color: white;
 }
 
-.navbar-light .navbar-nav .nav-link {
+a {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     padding: 0;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
+a:hover {
     color: white;
     border-bottom: 3px solid rgb(226, 66, 66);
     text-shadow: 0px 0px 3px white;
+    text-decoration: none;
 }
 
-.activebar {
+.activebar1 {
     color: white;
     border-bottom: 3px solid rgb(226, 66, 66);
     text-shadow: 0px 0px 3px white;

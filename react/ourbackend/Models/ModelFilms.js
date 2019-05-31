@@ -2,8 +2,8 @@
 var sql = require('./db.js');
 
 //define an object contructor
-var Films = function(data){
-	this.id = data.id;
+var Films = function(result){
+	this.movie_id = result.body.movie_id;
 }
 
 //define object method to be used by controller
@@ -22,6 +22,19 @@ Films.getOneFilm = function(result){
 		result(null, res);
 	});
 };
+
+Films.deletefilm = function(result){
+
+
+	console.log('cherie, je suis rentre !');
+
+	console.log(result);
+
+	sql.query('DELETE FROM `movies` WHERE '+movie_id+'', function(err, res, fields){
+		if(err) throw err;
+		result(null, res);
+	});
+}
 
 //export object to controller
 module.exports = Films;

@@ -12,9 +12,10 @@ class Adlist extends Component {
 
         this.state = {
             data: [],
-            search: '',
+            movie_id: '',
             error: null,
         };
+        this.delete = this.delete.bind(this);
     }
 
     componentDidMount() {
@@ -36,22 +37,41 @@ class Adlist extends Component {
     update(event) {
         console.log('toto');
 
-        this.setState({ search: event.target.value })
+        this.setState({ movie_id: event.target.value })
     }
 
-    create() {
-        this.state.data.forEach(element => {
+    delete(event) {
+        event.preventDefault();
+        var test = event.target.getAttribute('data-id');
+        console.log(test);
 
-            document.getElementById("tbody").insertAdjacentHTML
-                ('afterbegin', '<tr><td>'+element.movie_id+'</td><td>'+element.movie_name+'</td><td>'+element.movie_synopsis+'</td> \
-                <td><img src="'+element.movie_image+'" width=150></img></td><td>'+element.movie_hours+'</td><td><button>modifier</button><button>supprimer</button></td></tr>');
+        this.state.movie_id = test;
+        fetch('/deletefilms', {
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            data: JSON.stringify(this.state)
+        }).then(function (response) {
+            if (response.status >= 400) {
+                console.log(response);
+                throw new Error("bad response from server");
+            }
+            return response.json();
+        }).then(function (data) {
+            console.log(data)
+            if (data === "success") {
+                this.setState({msg: "GOOD"});
+            }
+        }).catch(function (err) {
+            console.log(err)
         });
     }
 
     render() {
         return (
             <div>
-                {this.create()}
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -63,7 +83,23 @@ class Adlist extends Component {
                             <th>gestion</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody"></tbody>
+                    <tbody id="tbody">{this.state.data.map(element =>
+                        <tr key={element.movie_id}>
+                            <td>{element.movie_id}</td>
+                            <td>{element.movie_name}</td>
+                            <td>{element.movie_synopsis}</td>
+                            <td>
+                                <img src={element.movie_image} width="150"></img>
+                            </td>
+                            <td>{element.movie_hours}</td>
+                            <td>
+                                <button>modifier</button>
+                                <form>
+                                    <input type="submit" data-id={element.movie_id} value="supprimer" onClick={this.delete} />
+                                </form>
+                            </td>
+                        </tr>)}
+                    </tbody>
                 </Table>
             </div>
         );

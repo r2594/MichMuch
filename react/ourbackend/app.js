@@ -23,11 +23,16 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// support parsing of application/json type post data
+app.use(bodyParser.json());
+//support parsing of application/x-www-form-urlencoded post data
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/films', filmsRouter);
+app.use('/deletefilms', filmsRouter);
 app.use('/film/id', filmsRouter);
 app.use('/comments', commentsRouter);
 app.use('/contact', contactRouter);
@@ -43,10 +48,10 @@ app.use('/contact', contactRouter);
 
 
 
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
-})); 
+// app.use( bodyParser.json() );       // to support JSON-encoded bodies
+// app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+//   extended: true
+// })); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
